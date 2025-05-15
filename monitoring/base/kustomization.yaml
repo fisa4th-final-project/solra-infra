@@ -1,3 +1,4 @@
 resources:
   - prometheus-deployment.yaml
   - prometheus-service.yaml
+  - prometheus-config.yaml

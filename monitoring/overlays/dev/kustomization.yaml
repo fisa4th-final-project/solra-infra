@@ -1,5 +1,5 @@
 resources:
-  - ../../base
+  - ../../base/prometheus-deployment.yaml
 
-patchesStrategicMerge:
-  - patch-prometheus-replica.yaml
+patches:
+  - path: patch-prometheus-replica.yaml

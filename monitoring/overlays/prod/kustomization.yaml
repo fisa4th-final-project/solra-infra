@@ -1,5 +1,5 @@
 resources:
-  - ../../base
+  - ../../base/prometheus-deployment.yaml
 
 patches:
   - path: patch-prometheus-replica.yaml

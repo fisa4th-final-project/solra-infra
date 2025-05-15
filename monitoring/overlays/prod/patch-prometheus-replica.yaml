@@ -3,4 +3,11 @@ kind: Deployment
 metadata:
   name: prometheus
 spec:
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
   replicas: 3

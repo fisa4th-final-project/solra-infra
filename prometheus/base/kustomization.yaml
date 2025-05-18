@@ -3,4 +3,3 @@ resources:
   - service.yaml
   - configmap.yaml
   - rbac.yaml
-  - sa-token.yaml

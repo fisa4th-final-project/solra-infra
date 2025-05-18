@@ -1,0 +1,16 @@
+grafana:
+  enabled: true
+  service:
+    type: NodePort
+    nodePort: 32000
+
+prometheus:
+  service:
+    type: NodePort
+    nodePort: 32001
+
+prometheus-node-exporter:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true

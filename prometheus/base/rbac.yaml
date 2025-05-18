@@ -20,6 +20,8 @@ rules:
   - nonResourceURLs:
       - /metrics
       - /metrics/cadvisor
+      - /metrics/probes
+      - /metrics/resource
     verbs: ["get"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1

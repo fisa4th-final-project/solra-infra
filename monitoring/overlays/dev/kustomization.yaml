@@ -1,4 +1,0 @@
-resources:
-  - ../../base/prometheus-config.yaml
-  - ../../base/prometheus-service.yaml
-  - prometheus-deployment.yaml

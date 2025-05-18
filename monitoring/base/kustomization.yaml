@@ -1,3 +1,0 @@
-resources:
-  - prometheus-service.yaml
-  - prometheus-config.yaml

@@ -23,45 +23,36 @@ data:
               - 10.5.100.22:9100  # worker2
               - 10.5.100.23:9100  # worker3
 
-      - job_name: 'kubernetes-apiservers'
-        kubernetes_sd_configs:
-          - role: endpoints
-        scheme: https
-        tls_config:
-          insecure_skip_verify: true
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-            action: keep
-            regex: default;kubernetes;https
-
-      - job_name: 'kubelet'
-        kubernetes_sd_configs:
-          - role: node
-        scheme: https
-        tls_config:
-          insecure_skip_verify: true
-        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
-        relabel_configs:
-          - action: labelmap
-            regex: __meta_kubernetes_node_label_(.+)
-          - target_label: __address__
-            replacement: kubernetes.default.svc:10250
-          - source_labels: [__meta_kubernetes_node_name]
-            regex: (.+)
-            target_label: __metrics_path__
-            replacement: /metrics
-
       - job_name: 'kube-controller-manager'
         static_configs:
-          - targets: ['localhost:10257']
+          - targets:
+              - 10.5.100.11:10257
+              - 10.5.100.12:10257
+              - 10.5.100.13:10257
         scheme: https
         tls_config:
           insecure_skip_verify: true
 
       - job_name: 'kube-scheduler'
         static_configs:
-          - targets: ['localhost:10259']
+          - targets:
+              - 10.5.100.11:10259
+              - 10.5.100.12:10259
+              - 10.5.100.13:10259
         scheme: https
+        tls_config:
+          insecure_skip_verify: true
+
+      - job_name: 'kubelet'
+        static_configs:
+          - targets:
+              - 10.5.100.11:10250
+              - 10.5.100.12:10250
+              - 10.5.100.13:10250
+              - 10.5.100.21:10250
+              - 10.5.100.22:10250
+              - 10.5.100.23:10250
+        scheme: https
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
         tls_config:
           insecure_skip_verify: true

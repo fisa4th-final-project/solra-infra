@@ -30,6 +30,7 @@ data:
               - 10.5.100.12:10257
               - 10.5.100.13:10257
         scheme: https
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
         tls_config:
           insecure_skip_verify: true
 
@@ -40,6 +41,7 @@ data:
               - 10.5.100.12:10259
               - 10.5.100.13:10259
         scheme: https
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
         tls_config:
           insecure_skip_verify: true
 

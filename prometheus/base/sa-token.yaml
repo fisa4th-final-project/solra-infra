@@ -6,11 +6,3 @@ metadata:
   annotations:
     kubernetes.io/service-account.name: prometheus
 type: kubernetes.io/service-account-token
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: prometheus
-  namespace: solra
-secrets:
-  - name: prometheus-token
